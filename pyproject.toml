@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uplift-experimentation-platform"
+version = "0.1.0"
+description = "An Experimentation Platform for Uplift: Who Should Be Treated, and What Is Targeting Worth? A cross-fitted uplift analysis of the Criteo Uplift Prediction Dataset v2, with a reusable experiment-readout harness, Qini and calibration evaluation, doubly robust policy values, a placebo gate, and a synthetic recovery gate."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = [
+    "matplotlib==3.11.2",
+    "numpy==2.5.4",
+    "pandas==3.1.1",
+    "pyarrow==26.0.1",
+    "scikit-learn==1.9.1",
+    "scipy==1.18.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.2.0",
+    "ruff==0.17.4",
+]
+notebooks = [
+    "ipykernel==7.4.0",
+    "nbclient==0.11.0",
+    "nbformat==5.11.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
